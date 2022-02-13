@@ -205,13 +205,13 @@ slide:not(.current) .plotly.html-widget{
 
 <p align="justify">
 
-En el año 1995 es licenciado bajo GNU (<em>General Public License</em>) <span class="cite">(Peng 2015)</span> haciendo de este un software libre. Esto permitió acceder al código fuente posibilitando mejoras, a que la cantidad de usuarios aumentara y en general un crecimiento vertiginoso a tal punto de convertirse en uno de los programas más utilizados para realizar análisis de datos.
+En el año 1995 es licenciado bajo GNU (<em>General Public License</em>) <span class="cite">(Peng 2015)</span> haciendo de este un software libre. Esto permitió acceder al código fuente posibilitando mejoras y a que la cantidad de usuarios aumentara, a tal punto de convertirse en uno de los programas más utilizados para realizar análisis de datos.
 
 </p>
 
 <p align="justify">
 
-<em>R</em> busca como filosofía, <span class="cite">(Peng 2015)</span>, crear un entorno que permita realizar rutinas estadísticas complejas de manera sencilla mediante líneas de comando. Y ofrecer un lenguaje para realizar programas en caso que las necesidades lo requieran.
+La filosofía de <em><em>R</em></em>, <span class="cite">(Peng 2015)</span>, consiste en crear un entorno que permita realizar rutinas estadísticas complejas de manera sencilla mediante líneas de comando, adicionalmente, ofrecer un lenguaje para realizar programas en caso que las necesidades lo requieran.
 
 </p>
 
@@ -219,60 +219,35 @@ En el año 1995 es licenciado bajo GNU (<em>General Public License</em>) <span c
 
 <p align="justify">
 
-<em>R</em> es libre mercantil y filosóficamente hablando. Ello implica que no hay que pagar por instalarlo, actualizarlo o compartilo. Además de lo anterior, algunos beneficios que valen la pena resaltar son:
+<strong>R</strong> Es libre. Lo que implica que no hay que pagar por instalarlo, actualizarlo o compartilo. Además de lo anterior, algunos beneficios que valen la pena resaltar son:
 
 </p>
 
+<div align="justify">
 <ul>
-<li><p align="justify">
-
-Tiene gran acogida en la comunidad científica y académica, por lo tanto, hay un gran número de personas dedicando su tiempo, esfuerzo y trabajo desarrollando en él.
-
-</p></li>
-<li><p align="justify">
-
-Aprender un software requiere esfuerzo y tiempo, por lo que conocer una herramienta que pueda ser utilizada en ambientes académicos, investigativos y empresariales.
-
-</p></li>
+<li>Tiene gran acogida en la comunidad científica y académica, por lo tanto, hay un gran número de personas dedicando su tiempo, esfuerzo y trabajo desarrollando en él.</li>
+<li>Aprender un software requiere esfuerzo y tiempo, por lo que conocer una herramienta que pueda ser utilizada en ambientes académicos, investigativos y empresariales.</li>
 <li>Una comunidad grande y sólida que brinda soporte y nuevos paquetes.</li>
-<li>Se solicita de manera interactiva información relevante.</li>
-</ul>
+</ul></div>
 
 </article></slide><slide class=""><hgroup><h2>Desventajas</h2></hgroup><article  id="desventajas">
 
+<div align="justify">
 <ul>
-<li><p align="justify">
+<li>No tiene soporte técnico ni garantía. Esto se resuelve debido a que la comunidad es activa y está en crecimiento</li>
+<li>No es rápido y si el código esta mal escrito puede ser terriblemente lento.</li>
+<li>Los objetos son almacenados en memoria, por lo tanto el mayor objeto está dado por la <em>RAM</em> del computador.</li>
+<li>No hay garantía que las rutinas estadísticas que vienen con los paquetes sean correctas. De allí que se debe tener muy claro lo que se está haciendo para identificar inconsistencias.</li>
+<li>Los usuarios de <em>R</em> no son generalmente programadores, por esta razón muchas de las rutinas están enfocadas a los resultados y no a desarrollar un código claro y rápido.</li>
+</ul></div>
 
-No tiene soporte técnico ni garantía. Esto se resuelve debido a que la comunidad es activa y está en crecimiento
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Manos a la obra</h2></hgroup><article  id="manos-a-la-obra">
 
-</p></li>
-<li><p align="justify">
-
-No es rápido y si el código esta mal escrito puede ser terriblemente lento.
-
-</p></li>
-<li><p align="justify">
-
-Los objetos son almacenados en memoria, por lo tanto el mayor objeto está dado por la <em>RAM</em> del computador.
-
-</p></li>
-<li><p align="justify">
-
-No hay garantía que las rutinas estadísticas que vienen con los paquetes sean correctas. De allí que se debe tener muy claro lo que se está haciendo para identificar inconsistencias.
-
-</p></li>
-<li><p align="justify">
-
-Los usuarios de <em>R</em> no son generalmente programadores, por esta razón muchas de las rutinas están enfocadas a los resultados y no a desarrollar un código claro y rápido
-
-</p></li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Objetos y precedencias</h2></hgroup><article  id="objetos-y-precedencias">
+</article></slide><slide class=""><hgroup><h2>Objetos</h2></hgroup><article  id="objetos">
 
 <p align="justify">
 
-En <em>R</em> existen 5 objetos principales los cuales:
+En <em>R</em> existen 5 objetos principales:
 
 </p>
 
@@ -317,9 +292,7 @@ En <em>R</em> existen 5 objetos principales los cuales:
 <strong><em>Ejemplos</em></strong>:
 
 <div align="justify">
-En la consola escribir y luego dar <em>Enter</em> a cada una de las siguientes líneas.
-
-<p align="center">
+<p>En la consola escribir y luego dar <em>Enter</em> a cada una de las siguientes líneas.</p>
 
 <pre class = 'prettyprint lang-r'>      TRUE  # Este objeto es lógico
       10L # Se crea el diez como un entero
@@ -328,44 +301,56 @@ En la consola escribir y luego dar <em>Enter</em> a cada una de las siguientes l
       &quot;hola mundo&quot; # Es un carácter
       5 / Inf # El resultado debe ser cero.
       Inf / Inf # El resultado es un NaN
-      NA # Representa un valor faltante</pre>
-
-</p>
-
-<p>Estas variables adquieren relevancia cuando se tienen grandes cantidades de datos.</p></div>
+      NA # Representa un valor faltante</pre></div>
 
 </article></slide><slide class=""><hgroup><h2>Operadores</h2></hgroup><article  id="operadores">
 
 <p align="justify">
 
-Los operadores son símbolos que indican que &ldquo;operación&rdquo; debe llevarse a cabo. Esto permite realizar actividades algo más complejas. Entre ellos tenemos: lógicos, relacionales y aritméticos.
+Los operadores son símbolos que indican que &ldquo;operación&rdquo; debe llevarse a cabo.
 
 </p>
 
-<h4>Operadores lógicos:</h4>
+<p><strong><em>Operadores lógicos</em></strong></p>
 
-<p align="center">
+<div class="columns-2">
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="center">Operador</th>
+<th align="center">Descripción</th>
+</tr>
+<tr class="odd">
+<td align="center">&amp;</td>
+<td align="center">Y lógico (La comparación se realiza a lo largo del objeto).</td>
+</tr>
+<tr class="even">
+<td align="center">|</td>
+<td align="center">Ó lógico (La comparación realiza a lo largo del objeto).</td>
+</tr>
+<tr class="odd">
+<td align="center">!</td>
+<td align="center">Operador de negación.</td>
+</tr>
+</table>
 
 <table class = 'rmdtable'>
 <tr class="header">
 <th align="center">Operador</th>
-<th align="center">Símbolo</th>
+<th align="center">Descripción</th>
 </tr>
 <tr class="odd">
-<td align="center">Y lógico</td>
-<td align="center">&amp; (La comparación se realiza a lo largo del objeto)</td>
+<td align="center">&amp;&amp;</td>
+<td align="center">(La comparación se realiza al primer elemento)</td>
 </tr>
 <tr class="even">
-<td align="center">O lógico</td>
-<td align="center">| (La comparación realiza a lo largo del objeto)</td>
+<td align="center">||</td>
+<td align="center">(La comparación se realiza al primer elemento)</td>
 </tr>
 <tr class="odd">
-<td align="center">Negación</td>
-<td align="center">!</td>
+<td align="center">xor()</td>
+<td align="center">Es igual a: !(x|y). Excluye el or.</td>
 </tr>
-</table>
-
-</p>
+</table></div>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
@@ -408,10 +393,9 @@ Los operadores son símbolos que indican que &ldquo;operación&rdquo; debe lleva
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<strong><em>Operadores aritméticos </em></strong>
+<p><strong><em>Operadores aritméticos </em></strong></p>
 
-<p align="center">
-
+<div class="columns-2">
 <table class = 'rmdtable'>
 <tr class="header">
 <th align="center">Operador</th>
@@ -437,13 +421,38 @@ Los operadores son símbolos que indican que &ldquo;operación&rdquo; debe lleva
 <td align="center">Potenciación</td>
 <td align="center">^</td>
 </tr>
-<tr class="even">
+</table>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="center">Operador</th>
+<th align="center">Símbolo</th>
+</tr>
+<tr class="odd">
 <td align="center">Módulo</td>
 <td align="center">%%</td>
 </tr>
-</table>
+<tr class="even">
+<td align="center">División entera</td>
+<td align="center">%/%</td>
+</tr>
+<tr class="odd">
+<td align="center">Multiplicación de matrices</td>
+<td align="center">%*%</td>
+</tr>
+<tr class="even">
+<td align="center">Producto exterior</td>
+<td align="center">%o%</td>
+</tr>
+<tr class="odd">
+<td align="center">Producto Kronecker</td>
+<td align="center">%x%</td>
+</tr>
+</table></div>
 
-</p>
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p><strong><em>Operadores de asignación</em></strong></p>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 

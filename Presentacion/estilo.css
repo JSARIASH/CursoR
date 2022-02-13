@@ -1,0 +1,56 @@
+
+slides > slide.backdrop {
+  background: #E8EBF2;
+  border-bottom: 5px;
+  box-shadow: 1 0 1;
+}
+
+
+slides > slide {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  border-bottom: 3px solid  #E8EBF2;
+  box-shadow:  0 3px 0 #522D80;
+  
+}
+
+.title-slide hgroup h1 {
+  color: #0E2A6C;
+  font-size: 48px;
+}
+
+.title-slide hgroup h2 {
+  font-size: 28px;
+}
+
+
+h2 {
+  
+  color: #091FD9;
+}
+
+slides > slide.dark {
+  background: #091FD9 !important;
+    border-bottom: 0;
+  box-shadow: 0 0 0;
+}
+
+.segue h2 {
+  color: white;
+}
+
+slides > slide.title-slide {
+  border-bottom: 0;
+  box-shadow: 0 0 0;
+}
+
+ol, ul {
+  
+  padding-bottom: 10px;
+  
+}
+
+slides > slide:not(.nobackground):after {
+  width: 75px;
+  height: 75px;
+  background-size: 75px 75px;
+}
