@@ -151,6 +151,8 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
 Las ***Precedencias*** indican el orden en que se ejecutan las operaciones aritméticas y lógicas, [link](https://www.nytimes.com/2019/08/02/science/math-equation-pedmas-bemdas-bedmas.html?smtyp=cur&smid=tw-nytimes). A continuación algunas de ellas numeradas de la más importante 1 a la menos 10. 
 </p>
 
+**Buscar las precedencias en la documentación de R**
+
 <div style="float: left; width: 50%;">
  1. Paréntesis
  2. Potenciación
