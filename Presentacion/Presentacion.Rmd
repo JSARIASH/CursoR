@@ -1,26 +1,32 @@
 ---
 title: "R"
+subtitle: (Una breve introducción)
 author: "Juan Sebastián Arias"
+institute: Universidad Tecnológica de Pereira
 output:
-  ioslides_presentation: default
-  beamer_presentation: default
-  slidy_presentation: default
+  ioslides_presentation:
+     logo: ~/Documents/Directorios/R/Curso_R/Presentacion/logo.png
+     css: ~/Documents/Directorios/R/Curso_R/Presentacion/estilo.css
 bibliography: presentacion.bib
 ---
 
-## R
+# Introducción. 
+
+## R {.build}
+
 <p align="justify">
 *R* es un software para realizar computación estadística y visualización de datos *_[@r-projec]_*; fue creado por *Ross Ihaka* y *Robert Gentleman* en 1991. 
 </p>
 
 <p align="justify">
-En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience] haciendo de este un software libre. Esto permitió acceder al código fuente posibilitando mejoras, a que la cantidad de usuarios aumentara y en general  un crecimiento vertiginoso a tal punto de convertirse en uno de los programas más utilizados para realizar análisis de datos. 
+En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience] haciendo de este un software libre. Esto permitió acceder al código fuente posibilitando mejoras; a que la cantidad de usuarios aumentara y en general,  un crecimiento vertiginoso a tal punto de convertirse en uno de los programas más utilizados para realizar análisis de datos. 
 </p>
 
 <p align="justify">
 *R* busca como filosofía, [@RDataSience], crear un entorno que permita realizar rutinas estadísticas complejas de manera sencilla mediante líneas de comando. Y ofrecer un lenguaje para realizar programas en caso que las necesidades lo requieran.
 </p>
-## ¿Por qué utilizar R?
+
+## ¿Por qué utilizar R? {#future-steps .emphasized}
 <p align="justify">
 *R*  es libre mercantil y filosóficamente hablando. Ello implica que no hay que pagar por instalarlo, actualizarlo o compartilo. Además de lo anterior, algunos beneficios que valen la pena resaltar son:
 </p>
@@ -38,9 +44,8 @@ En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience
 - <p align="justify">No hay garantía que las rutinas estadísticas que vienen con los paquetes sean correctas. De allí que se debe tener muy claro lo que se está haciendo para identificar inconsistencias. </p>
 - <p align="justify"> Los usuarios de *R* no son generalmente programadores, por esta razón muchas de las rutinas están enfocadas a los resultados y no a desarrollar un código claro y rápido</p>
 
-## Ejemplos a mostrar
 
-## Objetos y precedencias
+## Objetos y precedencias 
 <p align="justify">
 En *R* existen 5 objetos principales los cuales: 
 </p>
