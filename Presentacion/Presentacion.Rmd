@@ -214,8 +214,27 @@ El parámetro $\lambda \in [0, 1]$
 
 # Funciones
 
+## Introducción a las funciones
+<div align="justify">
+Las fuciones son programas que realizan una tarea específica. *R* cuenta con una gran variedad permitiendo realizar tareas complejas de manera sencilla. Estas funciones pueden o no recibir argumentos, realizan un procedimiento y devuelven un resultado. En general la sintaxis es la siguiente: _**Nombre_Funcion(Arg1, Arg2, Arg3, ...)**_. Algunas funciones importantes son: 
+
+ - **_getwd()_**: Permite identificar el directorio de trabajo. Esta es la carpta donde *R* va a busacar los archivos, datos y programas por defecto. 
+
+ - setwd(): Esta función se utiliza para cambiar el directorio de trabajo. 
+
+</div>
+
 ***
-Las fuciones son programas que permi
+ - help(): Accedemos a la documentación. 
+
+ - example(): Imprime ejemplos de las funciones.
+
+
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE}
+  rep(1, 5)
+```
+
+
 
 # Estructuras de datos. 
 
