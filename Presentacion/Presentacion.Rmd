@@ -141,8 +141,15 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
    Producto Kronecker | %x%
 
 </div>
+
 ***
 ***Operadores de asignación***
+<p align="center">
+  Operador | Descripción
+  :---------:|:--------:
+    <-, =  | Asignación a la izquierda
+    ->     | Asignación a la derecha. 
+</p>
 
 ***
 
@@ -205,6 +212,12 @@ El parámetro $\lambda \in [0, 1]$
 
 </div>
 
+# Funciones
+
+***
+Las fuciones son programas que permi
+
+# Estructuras de datos. 
 
 
 ## Referencias

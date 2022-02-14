@@ -14,8 +14,8 @@ slides > slide {
 }
 
 .title-slide hgroup h1 {
-  color: #0E2A6C;
-  font-size: 48px;
+  color: #000066;
+  font-size: 40px;
 }
 
 .title-slide hgroup h2 {
@@ -25,11 +25,11 @@ slides > slide {
 
 h2 {
   
-  color: #091FD9;
+  color: #000066;
 }
 
 slides > slide.dark {
-  background: #091FD9 !important;
+  background: #3333ff !important;
     border-bottom: 0;
   box-shadow: 0 0 0;
 }
