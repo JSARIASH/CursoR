@@ -6,13 +6,6 @@ slides > slide.backdrop {
 }
 
 
-slides > slide {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  border-bottom: 3px solid  #E8EBF2;
-  box-shadow:  0 3px 0 #522D80;
-  
-}
-
 .title-slide hgroup h1 {
   color: #000066;
   font-size: 40px;
@@ -24,23 +17,19 @@ slides > slide {
 
 
 h2 {
-  font-size: 30px;
+  font-size: 40px;
   color: #000066;
 }
 
 slides > slide.dark {
-  background: #3333ff !important;
-    border-bottom: 0;
+  background: #66b3ff !important;
+  border-bottom: 0;
   box-shadow: 0 0 0;
+  color:blue;
 }
 
 .segue h2 {
   color: white;
-}
-
-slides > slide.title-slide {
-  border-bottom: 0;
-  box-shadow: 0 0 0;
 }
 
 ol, ul {

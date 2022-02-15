@@ -1,18 +1,18 @@
 ---
-title: "R"
-subtitle: (Una breve introducción)
-author: "Juan Sebastián Arias"
+title: "Fundamentos de programación y análisis de datos en R"
+subtitle: Una introducción no tan breve
+author: "Juan Sebastián Arias Hernández"
 institute: Universidad Tecnológica de Pereira
 output:
   ioslides_presentation:
-     logo: ~/Documents/Directorios/R/Curso_R/Presentacion/logo.png
+     logo: ~/Documents/Directorios/R/Curso_R/Presentacion/Rlogo.png
      css: ~/Documents/Directorios/R/Curso_R/Presentacion/estilo.css
 bibliography: presentacion.bib
 ---
 
-# Introducción. 
+# Introducción
 
-## R {.build}
+## R {.build .black}
 
 <p align="justify">
 *R* es un software para realizar computación estadística y visualización de datos *_[@r-projec]_*; fue creado por *Ross Ihaka* y *Robert Gentleman* en 1991. 
@@ -26,7 +26,7 @@ En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience
 La filosofía de *_R_*, [@RDataSience], consiste en crear un entorno que permita realizar rutinas estadísticas complejas de manera sencilla mediante líneas de comando, adicionalmente, ofrecer un lenguaje para realizar programas en caso que las necesidades lo requieran.
 </p>
 
-## ¿Por qué utilizar R? {#future-steps .emphasized}
+## ¿Por qué utilizar R? {#future-steps .emphasized .black}
 <p align="justify">
 **R**  Es libre. Lo que implica que no hay que pagar por instalarlo, actualizarlo o compartilo. Además de lo anterior, algunos beneficios que valen la pena resaltar son:
 </p>
@@ -37,7 +37,7 @@ La filosofía de *_R_*, [@RDataSience], consiste en crear un entorno que permita
 - Una comunidad grande y sólida que brinda soporte y nuevos paquetes. 
 </div>
 
-## Desventajas
+## Desventajas { .black }
 <div align="justify">
 -  No tiene soporte técnico ni garantía. Esto se resuelve debido a que la comunidad es activa y está en crecimiento
 -  No es rápido y si el código esta mal escrito puede ser terriblemente lento. 
@@ -48,7 +48,7 @@ La filosofía de *_R_*, [@RDataSience], consiste en crear un entorno que permita
 
 # Manos a la obra
 
-## Objetos
+## Objetos {.black}
 <p align="justify">
 En *R* existen 5 objetos principales: 
 </p>
@@ -65,11 +65,11 @@ Adicionalmente *R* posee algunas variables de uso común:
 - <p align="justify"> **NA** Not Available. Es lo que en estadística se conoce comúnmente como faltantes. 
 </p>
 
-***
+*** 
 - <p align="justify"> **Inf** Representa el infinito. </p>
 - <p align="justify"> **NULL** Se utiliza para representar un lista de longitud cero. </p>
 
-***Ejemplos***:
+***Ejemplos*** 
 <div align="justify">
 En la consola escribir y luego dar _Enter_ a cada una de las siguientes líneas.
   
@@ -86,12 +86,12 @@ En la consola escribir y luego dar _Enter_ a cada una de las siguientes líneas.
 
 </div>
 
-## Operadores
+## Operadores {.black}
 <p align="justify">
 Los operadores son símbolos que indican que "operación" debe llevarse a cabo. 
 </p>
 
-***Operadores lógicos***
+***Operadores lógicos*** 
 
 <div class="columns-2">
  Operador | Descripción
@@ -107,8 +107,9 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
  xor() |  Es igual a: !(x\|y). Excluye el or. 
 </div>
 
-***
-***Operadores relacionales ***
+*** 
+
+***Operadores relacionales *** 
 <p align="center">
  Operador | Símbolo
  :---------:|:--------:
@@ -151,14 +152,18 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
     ->     | Asignación a la derecha. 
 </p>
 
-***
+Un operador que emplearemos frecuentemente es el _dos puntos_. Este nos permite crear secuencias. 
 
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE}
+10:1
+5:10
+```
+
+## Precedencias
 
 <p align="justify"> 
 Las ***Precedencias*** indican el orden en que se ejecutan las operaciones aritméticas y lógicas, [link](https://www.nytimes.com/2019/08/02/science/math-equation-pedmas-bemdas-bedmas.html?smtyp=cur&smid=tw-nytimes). A continuación algunas de ellas numeradas de la más importante 1 a la menos 10. 
 </p>
-
-**Buscar las precedencias en la documentación de R**
 
 <div style="float: left; width: 50%;">
  1. Paréntesis
@@ -178,63 +183,64 @@ Las ***Precedencias*** indican el orden en que se ejecutan las operaciones aritm
   </ol>
 </div>
 
-<div align="justify">
-Para cada uno de los ejemplos y ejercicios que vamos a desarrollar se va a tomar el valor de $\pi = 3.14$ y de $e = 2.71$
-</div>
-
-***
-Respuestas a los ejercicios de precedencias.
-```{r, include=FALSE}
-  uno <- 5 + 2 ^ 3 - 4 * 8 / 2
-  dos <- 1 / (1 /21 + 1 / 25 + 1 / 18 + 1 / 30 + 1 / 16)
-  tres <- 9 + 1.796 * (0.291 * (1 / 14 + 1 / 11)) ^ (1 / 2)
-  cuatro <- ( 9 * ((23 - 3.14 ^ 3) / 4) + 2 ^ 4 ) / 3
-  cinco_a <- 1 / ((2 * 3.14) ^ (1 / 2) * 2.6) * 2.71 ^ (- (3.5 - 3.5) ^ 2 / (2 * 2.6 ^ 2))
-  cinco_b <- 1 / ((2 * 3.14) ^ (1 / 2) * 2.6) * 2.71 ^ (- (2.98 - 3.5) ^ 2 / (2 * 2.6 ^ 2))
-```
- 
-Recuerde $\pi = 3.14$ y  $e = 2.71$ 
-
-1. `r uno `
-
-2.  `r dos `
-
-3.  `r tres`
-
-4.  `r cuatro`
-
-5.1 `r cinco_a`
-
-5.2  `r cinco_b`
-
-
-El parámetro $\lambda \in [0, 1]$
-
-</div>
 
 # Funciones
 
 ## Introducción a las funciones
 <div align="justify">
-Las fuciones son programas que realizan una tarea específica. *R* cuenta con una gran variedad permitiendo realizar tareas complejas de manera sencilla. Estas funciones pueden o no recibir argumentos, realizan un procedimiento y devuelven un resultado. En general la sintaxis es la siguiente: _**Nombre_Funcion(Arg1, Arg2, Arg3, ...)**_. Algunas funciones importantes son: 
+Las funciones son una clase particular de objetos. A estos objetos generalmente se les ingresa unos argumentos, aunque pueden no llevarlos, para que realicen unos procedimientos y retornes una respuesta. La sintaxis se ejemplifica a continuación. 
+
+<p align="justify">
+     <font color="blue">
+     <b>
+     _Nombre_Función(Arg1, Arg2, Arg3, ...)_
+     </b>
+    </font>
+</p>
+Algunas funciones de uso común.
+
+- **_c()_**: Permite combinar los argumentos para crear vectores. **Importante:** es una _c_ minúscula.
 
  - **_getwd()_**: Permite identificar el directorio de trabajo. Esta es la carpta donde *R* va a busacar los archivos, datos y programas por defecto. 
 
- - setwd(): Esta función se utiliza para cambiar el directorio de trabajo. 
 
 </div>
 
 ***
- - help(): Accedemos a la documentación. 
+ - **_setwd()_**: Esta función se utiliza para cambiar el directorio de trabajo.
 
- - example(): Imprime ejemplos de las funciones.
+ - **_help()_**: Accedemos a la documentación. 
+
+ - **_example()_**: Imprime ejemplos de las funciones.
 
 
 ```{r, highlight=TRUE, collapse=TRUE, eval=TRUE}
-  rep(1, 5)
+  c(1, 10, 20)
+  1:5
+  example("mean")
 ```
 
 
+## Ejercicios.
+<p align="justify">
+Con las funciones _example()_ y _help()_ estudie los siguientes comandos:
+</p>
+
+<div style="float: left; width: 50%;">
+ 1. sd()
+ 2. mean()
+ 3. length()
+ 4. nrow()
+ 5. ncol()
+</div>
+
+<div style="float: left; width: 50%;">
+ 6. rep()
+ 7. seq()
+ 8. abs()
+ 9. floor()
+ 10. ceiling()
+</div>
 
 # Estructuras de datos. 
 
