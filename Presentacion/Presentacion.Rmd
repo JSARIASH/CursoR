@@ -234,16 +234,55 @@ Con las funciones _example()_ y _help()_ estudie los siguientes comandos:
  5. ncol()
 </div>
 
-<div style="float: left; width: 50%;">
- 6. rep()
- 7. seq()
- 8. abs()
- 9. floor()
- 10. ceiling()
+<div style="float: left; width: 50%; start="6";">
+<ol start="6">
+ <li> rep() </li>
+ <li> seq() </li>
+ <li> abs() </li>
+ <li> floor() </li>
+ <li> ceiling() </li>
 </div>
+
+## Gráficos en dos dimensiones.
+ 
+
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='50%', fig.align='center'}
+plot(1, 1)
+```
+
+Esta función tiene una gran cantidad de parámetros. Recuerden que podemos acceder a la documentación con la función **help()**
+
+***
+Grafiquemos una parabola.
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='70%', out.width='70%', fig.align='center'}
+x <- seq(-10, 10, by = 0.5)
+y <- x ^ 2
+plot(x, y)
+```
+
+***
+
+\\(O.o)/ Ahora unamos los puntos con una línea.
+
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='70%', out.width='70%', fig.align='center'}
+x <- seq(-10, 10, by = 0.5)
+y <- x ^ 2
+plot(x, y, type = "l")
+```
+
+***
+ Modifiquemos el tipo de la línea, el espesor y el color. 
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='70%', out.width='70%', fig.align='center'}
+x <- seq(-10, 10, by = 0.5)
+y <- x ^ 2
+plot(x, y, type = "l", lwd = 4, lty = 2, col = "purple")
+```
+
+
 
 # Estructuras de datos. 
 
+## Vectores
 
 ## Referencias
 
