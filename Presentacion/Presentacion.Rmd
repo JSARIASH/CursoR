@@ -295,7 +295,29 @@ Una de las distribuciones de probabilidad más utilizadas en estadística es la 
 $$
   f(x) = \frac{1}{\sigma\sqrt{2 \pi}} e ^ {-\frac{(x-\mu)^2}{2\sigma^2}}
 $$
-Donde $\mu$ representa el parámetro de posición y $\sigma$ el de forma. 
+Donde $\mu$ representa el parámetro de posición y $\sigma$ el de forma. [clic Me](https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html]). En la consola: **demo(plotmath)**
+
+```{r,echo=FALSE,eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
+par(mar= c(3, 3, 3, 3))
+sigma <- 1
+mu <- 0
+x <- seq(-10, 10, by = 0.1)
+y <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
+plot(x, y, type = "l", lwd = 1, lty = 1, col = "darkblue", 
+     main = "", xlab = "", ylab = "")
+par(new = TRUE)
+mu <- 2
+y1 <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
+plot(x, y1, type = "l", lwd = 1, lty = 1, col = "salmon",  xlab = "Dominio", 
+     ylab = expression(f[x]), 
+     main = expression(
+       f[x] == frac(1, sigma*sqrt(2*pi)) * italic(e)^(-frac((x - mu)^2,2*sigma^2))
+     )
+     )
+abline(v = c(0, 2), col = c("darkblue", "red"))
+
+```
+
 </div>
 
 ## Ejercicios
