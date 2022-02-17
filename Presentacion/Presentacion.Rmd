@@ -246,7 +246,7 @@ Con las funciones _example()_ y _help()_ estudie los siguientes comandos:
 ## Gráficos en dos dimensiones.
  
 
-```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='50%', fig.align='center'}
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
 plot(1, 1)
 ```
 
@@ -254,7 +254,7 @@ Esta función tiene una gran cantidad de parámetros. Recuerden que podemos acce
 
 ***
 Grafiquemos una parabola.
-```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='70%', out.width='70%', fig.align='center'}
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
 x <- seq(-10, 10, by = 0.5)
 y <- x ^ 2
 plot(x, y)
@@ -264,7 +264,7 @@ plot(x, y)
 
 \\(O.o)/ Ahora unamos los puntos con una línea.
 
-```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='70%', out.width='70%', fig.align='center'}
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
 x <- seq(-10, 10, by = 0.5)
 y <- x ^ 2
 plot(x, y, type = "l")
@@ -272,12 +272,47 @@ plot(x, y, type = "l")
 
 ***
  Modifiquemos el tipo de la línea, el espesor y el color. 
-```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='70%', out.width='70%', fig.align='center'}
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
 x <- seq(-10, 10, by = 0.5)
 y <- x ^ 2
 plot(x, y, type = "l", lwd = 4, lty = 2, col = "purple")
 ```
 
+***
+Podemos poner el título al gráfico y a los ejes.
+```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
+x <- seq(-10, 10, by = 0.5)
+y <- x ^ 2
+plot(x, y, type = "l", lwd = 4, lty = 3, col = "darkblue", 
+     main = "Parabola", xlab = "Dominio", ylab = "Rango")
+```
+
+*** 
+
+<div align="justify">
+Una de las distribuciones de probabilidad más utilizadas en estadística es la [normal](https://mathworld.wolfram.com/NormalDistribution.html). Su expresión viene dada por: 
+
+$$
+  f(x) = \frac{1}{\sigma\sqrt{2 \pi}} e ^ {-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+Donde $\mu$ representa el parámetro de posición y $\sigma$ el de forma. 
+</div>
+
+## Ejercicios
+Realice las gráficas de las siguientes funciones: 
+
+$$
+\begin{equation}
+     f(x) = ln(x)  \quad 0 < x \leq 10 \\
+      f(x) = \sqrt[2]{x} \quad 0 \leq x \leq 10 \\
+     f(x) = 3x^2 \quad -5 \leq x \leq 5 \\
+     f(x) = -3x^2 \quad -5 \leq x \leq 5 \\
+     f(x) = x^3 - 9x   \quad -4 \leq x \leq 4 \\
+     f(x) = sin(x) \quad 0 \leq x \leq \pi \\
+     f(x) = cos(x) \quad 0 \leq x \leq \pi \\
+     f(x) = tan(x) \quad -.15 \leq x \leq 1.5 \\
+\end{equation}
+$$
 
 
 # Estructuras de datos. 
