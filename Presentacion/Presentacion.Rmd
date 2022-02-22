@@ -253,7 +253,7 @@ plot(1, 1)
 Esta función tiene una gran cantidad de parámetros. Recuerden que podemos acceder a la documentación con la función **help()**
 
 ***
-Grafiquemos una parabola.
+Grafiquemos una parábola.
 ```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
 x <- seq(-10, 10, by = 0.5)
 y <- x ^ 2
@@ -284,7 +284,7 @@ Podemos poner el título al gráfico y a los ejes.
 x <- seq(-10, 10, by = 0.5)
 y <- x ^ 2
 plot(x, y, type = "l", lwd = 4, lty = 3, col = "darkblue", 
-     main = "Parabola", xlab = "Dominio", ylab = "Rango")
+     main = "Parábola", xlab = "Dominio", ylab = "Rango")
 ```
 
 *** 
@@ -295,51 +295,116 @@ Una de las distribuciones de probabilidad más utilizadas en estadística es la 
 $$
   f(x) = \frac{1}{\sigma\sqrt{2 \pi}} e ^ {-\frac{(x-\mu)^2}{2\sigma^2}}
 $$
-Donde $\mu$ representa el parámetro de posición y $\sigma$ el de forma. [clic Me](https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html]). En la consola: **demo(plotmath)**
+Donde $\mu$ representa el parámetro de posición y $\sigma$ el de forma. 
 
-```{r,echo=FALSE,eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
-par(mar= c(3, 3, 3, 3))
+
+Vamos a realizar un plot de la gaussiana con las siguientes características: 
+
+1. $\mu = 0, \mu = 2, \mu = -2$. y $-10 \leq x \leq 10$.
+2. Debe tener leyenda. 
+3. El eje y debe tener la función anterior. 
+
+Tips: [clic Me](https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html) y en la consola escriba: **demo(plotmath)**
+
+</div>
+
+***
+El resultado debe ser similar al siguiente: 
+
+```{r,echo=FALSE,eval=TRUE, out.height='100%', out.width='100%', fig.align='center'}
 sigma <- 1
 mu <- 0
 x <- seq(-10, 10, by = 0.1)
 y <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
-plot(x, y, type = "l", lwd = 1, lty = 1, col = "darkblue", 
-     main = "", xlab = "", ylab = "")
-par(new = TRUE)
+par(mar = c(5, 6.5, 4.5, 4))
+plot(x, y, type = "l", lwd = 2, lty = 1, col = "darkblue", 
+     main = "Distribución Normal", 
+     ylab = expression(
+       italic(f[x]) == frac(1, sigma*sqrt(2*pi)) * italic(e)^(-frac((x - mu)^2,2*sigma^2))
+     ), xaxs = "i", yaxs = "i", ylim = c(0, 0.42))
 mu <- 2
 y1 <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
-plot(x, y1, type = "l", lwd = 1, lty = 1, col = "salmon",  xlab = "Dominio", 
-     ylab = expression(f[x]), 
-     main = expression(
-       f[x] == frac(1, sigma*sqrt(2*pi)) * italic(e)^(-frac((x - mu)^2,2*sigma^2))
-     )
-     )
-abline(v = c(0, 2), col = c("darkblue", "red"))
+lines(x, y1, type = "l", lwd = 2, lty = 1, col = "salmon",  xlab = "Dominio")
 
+mu <- -2
+y1 <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
+lines(x, y1, type = "l", lwd = 2, lty = 1, col = "purple",  xlab = "Dominio")
+abline(v = seq(-10, 10, by = 1), h = seq(0, 0.4, 0.1), col = "gray", lty = 2)
+legend(x = 5, y = 0.4, legend = c(expression(mu==-2),expression(mu == 0), expression(mu == 2)), 
+       fill = c("purple", "blue", "salmon"))
 ```
 
-</div>
+***
+Un poco de ayuda para que nos rinda. 
+
+```{r,echo=TRUE,eval=FALSE}
+# Primera: mu = 0
+sigma <- 1
+mu <- 0
+x <- seq(-10, 10, by = 0.1)
+y <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
+plot(x, y, type = "l", lwd = 2, lty = 1, col = "darkblue")
+
+# Segunda: mu = 2
+mu <- 2
+y <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
+lines(x, y, type = "l", lwd = 2, lty = 1, 
+      col = "salmon",  xlab = "Dominio")
+
+# Tercera: mu = -2
+mu <- -2
+y <- 1 / (sigma * sqrt(2 * pi)) * exp(- (x - mu) ^ 2 /(2 * sigma ^2))
+lines(x, y, type = "l", lwd = 2, lty = 1, 
+      col = "purple",  xlab = "Dominio")
+```
+
 
 ## Ejercicios
-Realice las gráficas de las siguientes funciones: 
+Realice las gráficas de las siguientes funciones y en el eje **y** escriba la relación matemática. 
 
-$$
-\begin{equation}
-     f(x) = ln(x)  \quad 0 < x \leq 10 \\
-      f(x) = \sqrt[2]{x} \quad 0 \leq x \leq 10 \\
-     f(x) = 3x^2 \quad -5 \leq x \leq 5 \\
-     f(x) = -3x^2 \quad -5 \leq x \leq 5 \\
-     f(x) = x^3 - 9x   \quad -4 \leq x \leq 4 \\
-     f(x) = sin(x) \quad 0 \leq x \leq \pi \\
-     f(x) = cos(x) \quad 0 \leq x \leq \pi \\
-     f(x) = tan(x) \quad -.15 \leq x \leq 1.5 \\
-\end{equation}
-$$
+- $f(x) = ln(x)  \quad 0 < x \leq 10$
+- $f(x) = \sqrt[2]{x} \quad 0 \leq x \leq 10$
+- $f(x) = 3x^2 \quad -5 \leq x \leq 5$
+- $f(x) = -3x^2 \quad -5 \leq x \leq 5$
+- $f(x) = x^3 - 9x   \quad -4 \leq x \leq 4$
+- $f(x) = sin(x) \quad 0 \leq x \leq \pi$
+- $f(x) = cos(x) \quad 0 \leq x \leq \pi$
+- $f(x) = tan(x) \quad -1.5 \leq x \leq 1.5$
+
+***
+
+<div align="justify">
+
+- Realice el gráfico de la distribución normal para $\mu = 0, \, \sigma=1 \, \sigma=2, \, \sigma = 3$. El plot debe tener la leyenda y la fución en el eje **y** (similar al de la diapositiva 24).
+
+- La función de distribución de **Poisson** se define por:
+$$f(x) = \frac{e^{-\lambda} \lambda^x}{x!}$$
+Donde $\lambda$ es un parámetro positivo que mide el número de veces que ocurre un evento e un intervalo. $x!$ representa el factorial de $x$, es decir, el producto de los números enteros positivos de 1 a $x$. Por ejemplo: si $x = 5$ entonces $x! = 5 \cdot4\cdot3\cdot2\cdot1= 120$. En **R** se puede utilizar la función **factorial()**. Realice un plot para valores de $\lambda=1, \, \lambda = 4,  \, \lambda= 10$ y $x \in \{0, 1, \cdots , 30\}$. No olvidar la leyenda y la función en el eje **y**.
+</div>
+
+***
+
+<div align="justify">
+- La función de distribución **Binomial** se define por: 
+$$f(x) = \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}$$
+Donde $p$ representa la probabilidad de éxito y $n$ la cantidad de ensayos a realizar. $x!$ es el factorial de $x$. Realice un plot que le permita gráficar esta función para $n = 25$ y $p = 0.3, \, p=0.5, \, p=0.7$. $x$ es una variable entera y vamos a definirla como: $x \in \{0, 1, \cdots, 25 \}$. No olvidar la función en el eje **y** y las leyendas. 
+</div>
+
+## Curvas.
+
+## Polígonos.
+
 
 
 # Estructuras de datos. 
 
 ## Vectores
+
+### Indexación de vectores. 
+
+### Indexaciones lógicas de vectores. 
+
+### Estimar $\pi$
 
 ## Referencias
 
