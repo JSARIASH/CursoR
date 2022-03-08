@@ -406,6 +406,194 @@ Donde $p$ representa la probabilidad de éxito y $n$ la cantidad de ensayos a re
 
 ### Estimar $\pi$
 
+## Matrices
+<div align="justify">
+Las matrices son un caso particular de arreglos con dos atributos definidos: el número de columnas y el número de filas. Estas estructuras de datos se pueden crear con la función **_matrix()_**. 
+
+```{r, echo = TRUE, eval=TRUE}
+mat <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+mat
+```
+Se crea un vector _‘‘c(1, 2, 3, 4)’’_ y luego  se define la cantidad de filas y columnas. 
+
+</div>
+
+***
+
+¿Qué diferencia hay entre mat1 y mat2 del siguiente código?
+
+```{r, echo=TRUE, eval=FALSE, collapse=TRUE}
+mat1 <- matrix(c(100, 200, 300, 400), nrow = 2, ncol = 2)
+
+mat2 <- matrix(c(100, 200, 300, 400), nrow = 2, ncol = 2, 
+               byrow = TRUE)
+```
+
+Diferentes operaciones aritméticas se pueden realizar:
+
+```{r global_options, echo=TRUE, eval=TRUE, collapse=TRUE}
+mat1 <- matrix(c(1, 2, 3, 4), nrow = 2)
+mat2 <- matrix(c(5, 6, 7, 8), nrow = 2)
+mat1 + mat2
+```
+
+***
+```{r}
+mat1 - mat2
+mat1 * mat2
+mat1 / mat2
+```
+
+***
+```{r}
+mat1 %*% mat2 #Producto de matrices
+```
+
+Con los mismos valores de las matrices _mat1_ y _mat2_ realice las siguientes operaciones e interpretelas. 
+
+```{r, echo=TRUE, eval=FALSE}
+mat1 %x% mat2 # Producto Kronecker
+
+mat1 %o% mat2 # Producto exterior. 
+```
+
+***
+
+<div align="justify">
+Solucionar sistemas de ecuaciones lineales es sencillo. Suponga el siguiente sistema. 
+$$\begin{array}
+     1x + 3y = 5 \\ 
+     2x + 4y = 7
+   \end{array}$$
+
+Este  se puede resolver con la función **solve()**. Esta función requiere una matriz con los coeficientes que acompañan las variables y un vector con los términos independientes.
+
+```{r, echo=TRUE, eval=TRUE, collapse=TRUE}
+mat_coef <- matrix(c(1, 2, 3, 4), nrow = 2)
+vec_b <- c(5, 7)
+mat_coef
+```
+
+</div>
+
+***
+
+Note que la matriz con los coeficientes, que para el ejemplo es $mat\_coef()$, coinciden con el sistema original. 
+
+```{r, echo=TRUE, eval=TRUE, collapse=TRUE}
+ solve(mat_coef, vec_b)
+```
+
+```{r, echo=FALSE, eval=TRUE, fig.align='center', out.height='80%', out.width='80%'}
+x <- seq(-1, 3, by = 0.1)
+y <- (5 - x) / 3
+y2 <- (7 - 2 * x) / 4
+plot(x, y, type = "l", lwd = 2, col = "purple")
+lines(x, y2, type = "l", lwd = 2, col = "salmon")
+grid(10, 10)
+abline(h = 1.5, v = 0.5, lty = 2)
+text(x = 0.8, y = 1.6, "(0.5, 1.5)")
+```
+
+
+## Ejercicios
+
+Solucione los siguientes sistemas de ecuaciones. 
+
+<div style="float: left; width: 50%;", align="justify">
+ <ol start = "1">
+   <li>  
+   $$\begin{equation}
+   \begin{array}{r}
+     2x + 3y + 11z + 5w = 2 \\
+     x + y + 5z + 2w = 1 \\
+     2x + y -3z + 2w = -3 \\
+     x + y -3z + 4w = -3
+   \end{array}
+   \end{equation}$$
+   </li>
+ </ol>
+</div>
+
+<div style="float: left; width: 50%; start="2";">
+<ol start="2">
+ <li>
+  $$\begin{equation}
+   \begin{array}{r}
+     2x + 2y -z + w = 4 \\
+     4x + 3y -z + 2w = 7 \\
+     8x + 5y -3z + 4w = 9 \\
+     x + y -3z + 4w = 6
+   \end{array}
+   \end{equation}$$
+   </li>
+</div>
+
+
+***
+
+<div style="float: left; width: 50%;", align="justify">
+ <ol start = "3">
+   <li>  
+   $$\begin{equation}
+   \begin{array}{r}
+     2x + 5y + 4z + w = 20 \\
+     x + 3y + 2z + w = 11 \\
+     2x + 10y +9z + 7w = 40 \\
+     3x + 8y +9z + 2w = 37
+   \end{array}
+   \end{equation}$$
+   </li>
+ </ol>
+</div>
+
+<div style="float: left; width: 50%; start="4";">
+<ol start="4">
+ <li>
+  $$\begin{equation}
+   \begin{array}{r}
+     x + 2y +3z -2w = 6 \\
+     3x + 2y -z + 2w = 4 \\
+     2x - y -2z - 3w = 2 \\
+     2x - 3y +2z + w = 8
+   \end{array}
+   \end{equation}$$
+   </li>
+</div>
+
+## Indexación de matrices
+
+Para acceder a los elementos de las matrices debemos indicar la fila y la columna. Por ejemplo: 
+
+```{r, echo=TRUE, eval=TRUE, collapse=TRUE}
+mat <- matrix(200:299, nrow = 10, ncol = 10)
+
+mat[2, 4] # Elemento en la fila dos columna cuatro.
+
+mat[32] # ¿Por qué nos da el resultado anterior?
+
+mat[, 1] # Todas las filas de la primera columna. 
+
+mat[2, ] # Todas las columnas de la segunda fila
+```
+
+***
+
+```{r, echo=TRUE, eval=TRUE, collapse=TRUE}
+mat[1:2, 1:3] # Se selecciona de la fila 1 a la 2 columnas 1 y 3
+
+mat[c(1, 10), c(1, 10)] # Se seleccionan las 4 esquinas.
+
+mat[c(3, 7, 9), 4:7] # Filas 3, 7 y 9. Columnas de la 4 a la 7
+```
+## Ejercicios
+
+Mediante indexaciones seleccione los elementos coloreados de la siguiente imagen: 
+
+<div align="center">
+![](~/Documents/Directorios/R/Curso_R/Presentacion/indexacion.png){width=60%, height=60%}
+</div>
+
 ## Referencias
 
 
