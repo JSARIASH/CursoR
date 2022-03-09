@@ -91,7 +91,7 @@ En la consola escribir y luego dar _Enter_ a cada una de las siguientes líneas.
 Los operadores son símbolos que indican que "operación" debe llevarse a cabo. 
 </p>
 
-***Operadores lógicos*** 
+### Operadores lógicos
 
 <div class="columns-2">
  Operador | Descripción
@@ -107,9 +107,8 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
  xor() |  Es igual a: !(x\|y). Excluye el or. 
 </div>
 
-*** 
-
-***Operadores relacionales *** 
+***
+### Operadores relacionales
 <p align="center">
  Operador | Símbolo
  :---------:|:--------:
@@ -122,7 +121,7 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
 </p>
 
 ***
-***Operadores aritméticos ***
+### Operadores aritméticos.
 
 <div class="columns-2">
    Operador | Símbolo | 
@@ -144,7 +143,7 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo.
 </div>
 
 ***
-***Operadores de asignación***
+### Operadores de asignación
 <p align="center">
   Operador | Descripción
   :---------:|:--------:
@@ -253,7 +252,7 @@ plot(1, 1)
 Esta función tiene una gran cantidad de parámetros. Recuerden que podemos acceder a la documentación con la función **help()**
 
 ***
-Grafiquemos una parábola.
+### Grafiquemos una parábola.
 ```{r, highlight=TRUE, collapse=TRUE, eval=TRUE, out.height='60%', out.width='60%', fig.align='center'}
 x <- seq(-10, 10, by = 0.5)
 y <- x ^ 2
@@ -592,6 +591,85 @@ Mediante indexaciones seleccione los elementos coloreados de la siguiente imagen
 
 <div align="center">
 ![](~/Documents/Directorios/R/Curso_R/Presentacion/indexacion.png){width=60%, height=60%}
+</div>
+
+***
+
+### Indexaciones lógias
+
+<div align="justify">
+Al igual que con los vectores. Se pueden seleccionar elementos que cumplan con condiciones. 
+
+```{r, echo=TRUE, eval=TRUE, collapse=TRUE}
+mat <- matrix(200:299, nrow = 10, ncol = 10) # Creamos la matriz
+# a)
+mat[1, mat[1, ] > 250] 
+
+# b)
+mat[mat[, 1] < 202 | mat[, 1] > 208 , 1] 
+
+```
+
+En la indexación **a)** seleccionamos de la primera fila, todas las columnas mayores a 250. En la **b)**; se selecciona de la columna 1 los valores mayores a 208 o menores a 202
+</div>
+
+***
+<div align="justify">
+```{r, echo=TRUE, eval=TRUE, collapse=TRUE}
+# c)
+mat[mat[, 1] >= 205 & mat[, 1] <= 208, c(6, 7)]
+
+# d)
+mat[mat[, 5] >= 245 & mat[, 8] <= 276 , ]
+
+```
+En **c)** seleccionamos de la columna 6 y 7 las filas que cumplan con: la columna 1 mayor o igual a 205 y la columna 1 menor o igual a 208. En **d)** Se leccionamos las filas donde la columna 5 es mayor o igual a 245 y la columna 8 menor o igual a 276, todas las columnas. 
+</div>
+
+***
+### Ejercicios
+
+Dada la siguiente matriz:
+
+<div align="center">
+![](~/Documents/Directorios/R/Curso_R/Presentacion/indexacion_logica.png){width=60%, height=60%}
+</div>
+<div align="justify">
+Resuelva los siguientes puntos.
+
+-  Seleccionar todos los datos de la matriz que cumplan con que la columna 3 sea mayor o igual a 10.
+</div>
+
+***
+
+<div align="justify">
+-  Seleccionar todos los valores de la matriz que  cumplan con que la columna 2 sean mayores o iguales a 8 y que la columna 5 sea menor a 15. 
+- Seleccione las filas 1, 2, 4, 5, 7 y 8. 
+- Seleccione todas las filas que cumpla con que la columna 2 sea mayor o igual a 14. 
+- Seleccione los valores que cumplan con que la columna 1 sea menor o igual a 3 o que la columna 6 sea mayor o igual a 16. 
+- Seleccione los valores que cumplan con que la columna 3 sea diferente a 11. 
+- Seleccione los valores que cumplan con que la columna 1 sea igual a 19. 
+</div>
+
+*** 
+### Coeficientes ideterminados. 
+<div align="justify">
+Este método permite ajustar un polinomio a un conjunto de puntos. Dados $N + 1$ pares ordenados de la forma $(x_{i}, y_{i})$, con $i \in 1, 2, 3, \cdots, N+1$ encontrar un polinomio de grado $N$ que pasa por los puntos $(x_{i}, y_{i})$. Es decir un polinomio de la forma: 
+
+$$P_{N}(x) = a_{0} + \sum_{k=1}^{N} a_{k} x ^ k$$
+Para que el polinomio pase por los puntos debe cumplir con: 
+$$y_{i} = \sum_{k=0}^N a_{k}x_{i}^k \quad \forall \, i \in \{1, 2, 3, \cdots, N+1 \}$$
+</div>
+
+***
+
+<div align="justify">
+Para los siguientes conjuntos de puntos encuentre el polinomio y realice el gráfico. 
+
+- $(0, 2), (1,2), (2,0), (3,0)$
+- $(0, 1), (1,2), (3,7)$
+- $(-1, 5), (-0.5, -1), (0, 3), (2, 7), (5, -1)$
+- $(-3, 4), (-1.5, -2), (1, 5), (2.6, 1), (3.7, -2)$
 </div>
 
 ## Referencias
