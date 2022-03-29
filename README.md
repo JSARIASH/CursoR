@@ -5,6 +5,15 @@ Este repo contendrá el material para el curso de informática 2.
 
 # Material de interés.
 
+## Libros recomendados: 
+R inferno
+Advance R
+ggplot2
+The art of R programing
+R programing for data Science
+R for data Science
+
+
 ## Motores de búsqueda
 [rseek.org](https://rseek.org/): Motor de búsqueda para encontrar información particularmente de *R*.
 
