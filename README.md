@@ -11,6 +11,8 @@ Este repo contendrá el material para el curso de informática 2.
 ## RMarkdown
 [R Markdown: The Definitive Guide - Yihui](https://bookdown.org/yihui/rmarkdown/)
 
+[Knitr](https://yihui.org/knitr/)
+
 [epirhandbook.com](https://epirhandbook.com/en/index.html)
 
 [kableExtra - Tablas](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
