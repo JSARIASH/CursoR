@@ -17,6 +17,8 @@ Este repo contendrá el material para el curso de **R** del programa [Ingenierí
 
 [R programing for data Science](https://bookdown.org/rdpeng/rprogdatascience/)
 
+[R Cookbook](https://rc2e.com/gettingstarted#recipe-id001)
+
 [R for data Science](https://r4ds.had.co.nz/)
 
 
