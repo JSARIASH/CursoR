@@ -1,17 +1,23 @@
-# Curso R
+# R
 
-Este repo contendrá el material para el curso de informática 2. 
+Este repo contendrá el material para el curso de **R** del programa [Ingeniería Industrial](https://industrial.utp.edu.co/) de la [Universidad Tecnológica de Pereira](https://www.utp.edu.co/)
 
 
 # Material de interés.
 
-## Libros recomendados: 
-R inferno
-Advance R
-ggplot2
-The art of R programing
-R programing for data Science
-R for data Science
+## Libros recomendados
+
+[R inferno](https://www.burns-stat.com/documents/books/the-r-inferno/)
+
+[Advance R - versión web](https://adv-r.hadley.nz/index.html)
+
+[ggplot2- Versión web](https://ggplot2-book.org/)
+
+[The art of R programing](https://nostarch.com/artofr.htm)
+
+[R programing for data Science](https://bookdown.org/rdpeng/rprogdatascience/)
+
+[R for data Science](https://r4ds.had.co.nz/)
 
 
 ## Motores de búsqueda
@@ -34,4 +40,12 @@ R for data Science
 [ggplot2](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf)
 
 [Otras](https://www.rstudio.com/resources/cheatsheets/)
+
+# Descargar datos de github.
+
+[Primera opción](https://download-directory.github.io/)
+
+[Segunda opcióñ](https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related)
+
+
 
