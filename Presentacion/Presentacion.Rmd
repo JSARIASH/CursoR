@@ -5,14 +5,14 @@ author: "Juan Sebastián Arias Hernández"
 institute: Universidad Tecnológica de Pereira
 output:
   ioslides_presentation:
-     logo: ~/Documents/Directorios/R/Curso_R/Presentacion/Rlogo.png
-     css: ~/Documents/Directorios/R/Curso_R/Presentacion/estilo.css
+     logo: ~/Documents/Cursos/CursoR/Curso_R/Presentacion/Rlogo.png
+     css:  ~/Documents/Cursos/CursoR/Curso_R/Presentacion/estilo.css
 bibliography: presentacion.bib
 ---
 
 # Introducción
 
-## R {.build .black}
+## R {.build }
 
 <p align="justify">
 *R* es un software para realizar computación estadística y visualización de datos *_[@r-projec]_*; fue creado por *Ross Ihaka* y *Robert Gentleman* en 1991. 
@@ -26,7 +26,7 @@ En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience
 La filosofía de *_R_*, [@RDataSience], consiste en crear un entorno que permita realizar rutinas estadísticas complejas de manera sencilla mediante líneas de comando, adicionalmente, ofrecer un lenguaje para realizar programas en caso que las necesidades lo requieran.
 </p>
 
-## ¿Por qué utilizar R? {#future-steps .emphasized .black}
+## ¿Por qué utilizar R? {#future-steps .emphasized}
 <p align="justify">
 **R**  Es libre. Lo que implica que no hay que pagar por instalarlo, actualizarlo o compartilo. Además de lo anterior, algunos beneficios que valen la pena resaltar son:
 </p>
@@ -393,15 +393,87 @@ Donde $p$ representa la probabilidad de éxito y $n$ la cantidad de ensayos a re
 
 ## Polígonos.
 
+```{r, eval=TRUE, collapse=TRUE, fig.align='center', fig.dim=c(5, 4)}
+
+x <- seq(-5, 5, 0.1); y <- dnorm(x, 0, 1)
+plot(x, y, type = "l")
+x_pol <- c(-5, -2, seq(-2, -5, -0.1))
+y_pol <- c(0, 0, dnorm(seq(-2, -5, -0.1), 0, 1))
+polygon(x_pol, y_pol, col = "red", border = "blue")
+```
 
 
 # Estructuras de datos. 
 
 ## Vectores
+<div align="justify">
+Los vectores en _R_ son la estructura de datos básica. Se caracteriza porque todos los objetos deben ser del mismo tipo: lógicos, enteros, númericos, complejos o texto. 
+
+```{r, eval=TRUE, collapse=TRUE, highlight=TRUE}
+ c(1, c(10, 20, 10), 5)
+ 1:10
+ seq(-2, -10, -1)
+ rep(c(10, 20), times = 3)
+ rep(c(10, 20), each = 3)
+ rep(c(1, 3, 5), c(5, 2, 4))
+ 
+```
+</div>
+
+***
+
+<div align="justify">
+Si se mezclan diferentes objetos en un mismo vector, _R_ los convierte a un mismo tipo. 
+
+```{r, eval=TRUE, collapse=TRUE, highlight=TRUE}
+c(TRUE, FALSE, "hola") # Todos texto
+c(TRUE, FALSE, 3L) # Todos enteros
+c(5L, 4L, 2.5) # Todos double
+c(5, 5+2i) # Todos complejos. 
+
+```
+</div>
+
+_**Ejercicio:**_ Determine la jerarquía que utiliza _R_ para convertir los objetos diferentes contenidos en un mismo vector. 
+
+_Sujerencia:_ Cree un vector con todos los objetos y observe el resultado. 
+
+***
 
 ### Indexación de vectores. 
 
+<div align="justify">
+La indexación es la forma como podemos acceder a los elementos de un vector. Para ello se utlizan los corchetes, **[]**, y la posición del elemento a seleccionar.  
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+x <- c(2, 3, 7, 11, 13, 17, 19, 23, 27)
+
+x[1] # Accedo al elemento en la posición 1. 
+
+x[9] # Accedo al elemento en la posición 9
+
+x[3:6] # Accedemos a los del 3 al 6.
+
+x[c(1, 4, 6, 9)] # Accedemos a los elementos 1, 4, 6 y  9.
+```
+</div>
+
+***
+
 ### Indexaciones lógicas de vectores. 
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+x <- c(-10, -5, 8, 12, 21, -17, 9)
+
+x > 0 # Es TRUE donde los números son positivos. 
+
+x[x>0] # Seleccinamos las posiciones donde ocurre el verdadero. 
+
+x[x > 0 & x < 12] # Valores mayores a 0 y menores a 12. 
+
+x[x < -5 | x > 12] # Valores menores a -5 y mayores a 12. 
+```
+***
 
 ### Estimar $\pi$
 
@@ -421,7 +493,7 @@ Se crea un vector _‘‘c(1, 2, 3, 4)’’_ y luego  se define la cantidad de 
 
 ¿Qué diferencia hay entre mat1 y mat2 del siguiente código?
 
-```{r, echo=TRUE, eval=FALSE, collapse=TRUE}
+```{r , echo=TRUE, eval=FALSE, collapse=TRUE}
 mat1 <- matrix(c(100, 200, 300, 400), nrow = 2, ncol = 2)
 
 mat2 <- matrix(c(100, 200, 300, 400), nrow = 2, ncol = 2, 
@@ -590,7 +662,7 @@ mat[c(3, 7, 9), 4:7] # Filas 3, 7 y 9. Columnas de la 4 a la 7
 Mediante indexaciones seleccione los elementos coloreados de la siguiente imagen: 
 
 <div align="center">
-![](~/Documents/Directorios/R/Curso_R/Presentacion/indexacion.png){width=60%, height=60%}
+![](~/Documents/Cursos/CursoR/Curso_R/Presentacion/indexacion.png){width=60%, height=60%}
 </div>
 
 ***
@@ -632,7 +704,7 @@ En **c)** seleccionamos de la columna 6 y 7 las filas que cumplan con: la column
 Dada la siguiente matriz:
 
 <div align="center">
-![](~/Documents/Directorios/R/Curso_R/Presentacion/indexacion_logica.png){width=60%, height=60%}
+![](~/Documents/Cursos/CursoR/Curso_R/Presentacion/indexacion_logica.png){width=60%, height=60%}
 </div>
 <div align="justify">
 Resuelva los siguientes puntos.
@@ -671,6 +743,134 @@ Para los siguientes conjuntos de puntos encuentre el polinomio y realice el grá
 - $(-1, 5), (-0.5, -1), (0, 3), (2, 7), (5, -1)$
 - $(-3, 4), (-1.5, -2), (1, 5), (2.6, 1), (3.7, -2)$
 </div>
+
+## Data frames.
+<div align="justify">
+Esta estructura permite almacenar la información de forma tabular. Cada columna debe ser del mismo tipo ya que representa una misma variable. 
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+set.seed(2)
+datos <- data.frame(
+  Inicial = letters[1:10], altura = rnorm(10, 160, 20), 
+  peso = rnorm(10, 60, 10), sexo = rbinom(10, 1, 0.5)
+  )
+head(datos)
+```
+</div>
+
+***
+
+### Indexación de data frames. 
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+datos$Inicial
+
+datos[, 1]
+
+datos[2, ]
+
+datos[3:6, ]
+
+```
+
+***
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+datos[c(2, 5, 9), ]
+
+datos[c(2, 5, 9), 2:3]
+
+datos[c(2, 5, 9), c("Inicial", "sexo")]
+```
+
+***
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+datos[1:5, c("Inicial", "sexo")]
+
+datos$Inicial
+
+datos$sexo
+
+datos$sexo[1:5]
+
+datos$altura[c(1, 5, 10)]
+
+```
+
+***
+### Indexación lógica con data frames
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+datos[datos$peso >= 68, ]
+
+datos[datos$sexo == 1, ]
+
+```
+***
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+datos[datos$sexo == 1 & datos$altura <= 170, ]
+
+datos[datos$sexo == 0 & datos$altura > 170, 2:3]
+
+datos[datos$altura <= 165 & datos$peso >= 53, c("altura", "peso")]
+
+```
+
+## Ingresar datos
+<div align="justify">
+Leer información es una de las actividades que más se realizan durante el análisis de datos. Esta información puede venir en diferentes formatos como:
+
+ - Archivos separados por comas (.csv).
+
+ - Libros de Excel (.xlsx, .xlx).
+
+ - Se puede leer información de una página web. 
+
+ - Archivos binarios 
+
+ - Imágenes, audios y vídeos. 
+
+En general hay una gran cantidad de formatos. 
+</div>
+
+***
+<div align="justify">
+Inicialmente vamos a leer los datos con la función _read.csv()_. Vamos a leer el archivo _cities.csv_. 
+
+```{r, eval=TRUE, highlight=TRUE, collapse=TRUE}
+ciudades <- read.csv("../Datos/varios/cities.csv")
+head(ciudades[1:5], 10)
+```
+</div>
+
+***
+<div align="justify">
+Luego de leer los datos realizar las siguientes actividades. 
+
+- Realizar un gráfico de dispersión de longitud vs latitud. 
+
+- En el gráfico anterior mostrar las ciudades con más de un millón de habitantes.
+
+- Realizar un gráfico únicamente con las ciudades Colombinas. 
+
+- Realizar un gráfico con las ciudades de los siguientes países: Estados Unidos, Canadá, México, Colombia, Venezuela, Ecuador, Perú, Bolivia, Chile, Brasil, Argentina, Uruguay, Paraguay, Surinam y Trinidad y Tobago. 
+
+- Realizar un histograma con la variable población. 
+
+- Realizar un boxplot con la variable población. 
+
+</div>
+
+***
+
+<div align="justify">
+- Leer el archivo: _cumple.csv_ y probar la paradoja del cumpleaños. 
+
+- Leer el archivo: _datos_fumadores.csv_ y realizar los siguientes gráficos: Un boxplot de edad vs Fumador, Presión vs Fumador y Riesgo vs Fumador.
+
+- Realizar una prueba t-estudent para determinar si el fumar impacta el riesgo, presión y la edad. 
+</div>
+
 
 ## Referencias
 

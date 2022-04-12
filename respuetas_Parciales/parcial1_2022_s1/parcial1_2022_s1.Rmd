@@ -1,0 +1,116 @@
+---
+title: "Solución Parcial"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+---
+ ***
+## Punto 1
+
+```{r, eval = TRUE, collapse=TRUE}
+# Se crea el vector. 
+ x <- c(1, 15, 7, 20, -10, -27, -21, 30, 1, 11)
+# Los valores mayores a cero se reemplazan por cero. 
+ x[x > 0] <- 0
+ x
+ 
+# Se crea nuevamente el vector
+ x <- c(1, 15, 7, 20, -10, -27, -21, 30, 1, 11)
+# Multiplicar los números pares por 5. 
+ x[x %% 2 == 0] * 5
+ 
+# Se crea nuevamente el vector
+ x <- c(1, 15, 7, 20, -10, -27, -21, 30, 1, 11)
+# Valores mayores a la media reemplazarlo por el valor menos la media. 
+ x[x > mean(x)] # Estos son los valores mayores a la media.  
+# Se procede con la asignación. 
+ x[x > mean(x)] <- x[x > mean(x)] - mean(x)
+ x 
+```
+
+
+## Punto 2
+
+```{r, eval=TRUE, collapse=TRUE}
+x <- matrix(
+  c(12, 21, 45, 12, 56, 10, 23, 3, 45, 6, 12, 
+    13, 21, 31, 4, 2, 4, 1, 4, 1, 7, 5, 6, 8, 10),
+  nrow = 5, byrow = TRUE
+  )
+x
+
+# Columna 2 sea menor a 13.
+x[x[, 2] < 13, ]
+
+# Columna 1 mayor o igual a siete y columna 5 menor o igual a siete. 
+x[x[, 1] >= 7 & x[, 5] <= 7, ]
+```
+## Punto 3
+El sistema de ecuaciones queda de la siguientes manera: 
+
+ $$
+ \begin{array}{c} 
+ 285  =  a_{0} 2^0 + a_{1}2^1 + a_{2} 2 ^ 2 + a_{3} 2 ^ 3 \\ 
+ 269  =  a_{0} 5^0 + a_{1}5^1 + a_{2} 5 ^ 2 + a_{3} 5 ^ 3 \\
+ 270  =  a_{0} 8^0 + a_{1}8^1 + a_{2} 8 ^ 2 + a_{3} 8 ^ 3 \\ 
+ 273  =  a_{0}11^0 + a_{1}11^1 + a_{2} 11 ^ 2 + a_{3} 11 ^ 3 
+ \end{array}
+ $$
+ 
+```{r, eval=TRUE, collapse=TRUE, fig.align='center'}
+# Matriz de coeficientes
+ mat_coef <- matrix(
+   c(1, 2, 4, 8, 1, 5, 25, 125, 1, 8, 64, 8 ^ 3, 1, 11, 11 ^ 2, 11 ^ 3),
+   nrow = 4, byrow = TRUE
+   )
+ mat_coef
+ coeficintes <- solve(mat_coef, c(285, 269, 270, 273))
+ coeficintes
+ 
+ a0 <- coeficintes[1]
+ a1 <- coeficintes[2]
+ a2 <- coeficintes[3]
+ a3 <- coeficintes[4]
+ 
+ # Gráfico: 
+ dominio <- seq(0, 15, 0.1)
+ y <- a3 * dominio ^ 3 + a2 * dominio ^ 2 + a1 * dominio ^ 1 + a0
+ plot(dominio, y, type = "l", lwd = 1.4, xlab = "Años", ylab = "Precio")
+ points(x = c(2, 5, 8, 11),  y = c(285, 269, 270, 273), pch = 19)
+ grid(10, 10)
+ 
+ pagar_9 <- a3 * 9 ^ 3 + a2 * 9 ^ 2 + a1 * 9 ^ 1 + a0
+ pagar_12 <- a3 * 12 ^ 3 + a2 * 12 ^ 2 + a1 * 12 ^ 1 + a0 
+ 
+ points(x = c(9, 12), y = c(pagar_9, pagar_12), pch = 19, col = "purple")
+```
+
+El valor a pagar a 9 años es `r pagar_9` y a 12 años es `r pagar_12`
+
+## Punto 4
+
+```{r, echo=TRUE, eval=TRUE, fig.align='center'}
+ x <- 0:30
+ lambda_1 <- 1
+ lambda_2 <- 4
+ lambda_3 <- 10
+ 
+ y1 <- exp(-lambda_1) * lambda_1 ^ x / factorial(x)
+ y2 <- exp(-lambda_2) * lambda_2 ^ x / factorial(x)
+ y3 <- exp(-lambda_3) * lambda_3 ^ x / factorial(x)
+ 
+ par(mar = c(3, 6.5, 4, 4))
+ plot(x, y1, type = "l", col = "purple", 
+      ylab = expression(f(x) == frac(e^{-lambda} * lambda ^ x, "x!")),
+      main = "Función de densidad de Poisson")
+ lines(x, y2, col = "salmon")
+ lines(x, y3, col = "navy")
+ grid(20, 20)
+ legend("topright", 
+        legend = c(expression(lambda == 1), expression(lambda == 4), expression(lambda == 10)),
+        fill = c("purple", "salmon", "navy")
+        )
+```
